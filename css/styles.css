@@ -696,12 +696,18 @@ img {
 
   display: inline-block;
   background-color: var(--backdrop-bg-clr);
+
+  opacity: 1;
+  transition: opacity var(--duration) var(--tran-tim-fun);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
 }
 
 .modal {
@@ -711,11 +717,13 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   background-color: var(--main-bg);
   box-shadow: var(--modal-box-shadow);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--duration) var(--tran-tim-fun);
 }
 
 .modal-btn {
