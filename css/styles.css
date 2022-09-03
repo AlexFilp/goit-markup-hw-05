@@ -619,9 +619,7 @@ img {
 
 .portfolio-group {
   padding: 20px 24px;
-  border-left: var(--portfolio-border);
-  border-right: var(--portfolio-border);
-  border-bottom: var(--portfolio-border);
+  border: var(--portfolio-border);
 }
 
 .portfolio-item:hover,
