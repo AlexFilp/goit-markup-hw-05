@@ -595,6 +595,7 @@ img {
 .portfolio-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* CALC((100% - кол-во маржинов в строке * значение маржина)
@@ -606,13 +607,15 @@ img {
   transition: box-shadow var(--duration) var(--tran-tim-fun);
 }
 
-.portfolio-item:not(:nth-child(3n)) {
+/* Вариант отступов через маржины */
+
+/* .portfolio-item:not(:nth-child(3n)) {
   margin-right: 30px;
 }
 
 .portfolio-item:not(:nth-last-child(-n + 3)) {
   margin-bottom: 30px;
-}
+} */
 
 .portfolio-group {
   padding: 20px 24px;
@@ -638,24 +641,28 @@ img {
   color: var(--secondary-text-clr);
 }
 
-.prtfl-overlay {
+/* Позиционирование и оверлей */
+
+.portfolio-thumb {
   position: relative;
+  overflow: hidden;
 }
 
-.prtfl-overlay::before {
-  content: "";
-  display: inline-block;
+.portfolio-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
 
   width: 100%;
   height: 100%;
 
   background-color: var(--prtfl-bg-clr);
 
-  opacity: 0;
+  transform: translateY(100%);
+  transition: transform var(--duration) var(--tran-tim-fun);
 }
 
-.prtfl-desc {
+.portfolio-desc {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -668,18 +675,11 @@ img {
   line-height: 1.56;
 
   color: var(--main-bg);
-
-  opacity: 0;
 }
 
-.portfolio-item:hover .prtfl-desc,
-.portfolio-item:focus .prtfl-desc {
-  opacity: 1;
-}
-
-.portfolio-item:hover .prtfl-overlay::before,
-.portfolio-item:focus .prtfl-overlay::before {
-  opacity: 1;
+.portfolio-item:hover .portfolio-overlay,
+.portfolio-item:focus .portfolio-overlay {
+  transform: translateY(0);
 }
 
 /**
