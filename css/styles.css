@@ -493,6 +493,8 @@ img {
   font-size: 14px;
   line-height: 1.71;
   color: var(--main-bg);
+
+  transition: color var(--duration) var(--tran-tim-fun);
 }
 
 .footer-link:hover,
